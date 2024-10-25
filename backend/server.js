@@ -1,22 +1,27 @@
-const express = require('express');
+const express = require("express");
 
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 
-const cors = require('cors');
+const cors = require("cors");
 
-const sequelize = require('./config/database');
+const sequelize = require("./config/database");
 
-const bookRoutes = require('./routes/bookRoutes');
+const bookRoutes = require("./routes/bookRoutes");
 
 const app = express();
 const PORT = 4000;
+
+// Define routes
+app.get("/", (req, res) => {
+  res.send("Welcome to the Book Inventory System");
+});
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
-app.use('/api', bookRoutes);
+app.use("/books", bookRoutes);
 
 // Sync the database and start the server
 sequelize.sync().then(() => {

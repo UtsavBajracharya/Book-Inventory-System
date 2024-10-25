@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+import AddBookForm from './components/AddBookForm.js';
+
+import FilterBooks from './components/FilterBooks.js';
+
+import BooksList from './components/BookList.js';
+
+import ExportButton from './components/ExportButton.js';
+
+import './styles.css';
 
 function App() {
+  const [filters, setFilters] = useState({});
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Book Inventory Management System</h1>
+      <AddBookForm />
+      <FilterBooks onFilter={setFilters} />
+      <BooksList filters={filters} />
+      <div>
+        <ExportButton format="csv" />
+        <ExportButton format="json" />
+      </div>
     </div>
   );
 }
