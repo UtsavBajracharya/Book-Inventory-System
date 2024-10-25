@@ -13,11 +13,16 @@ import './styles.css';
 function App() {
   const [filters, setFilters] = useState({});
 
+  const handleFilterChange = (filterData) => {
+    setFilters(filterData);
+
+  };
+
   return (
     <div className="App">
       <h1>Book Inventory Management System</h1>
       <AddBookForm />
-      <FilterBooks onFilter={setFilters} />
+      <FilterBooks onFilter={handleFilterChange} />
       <BooksList filters={filters} />
       <div>
         <ExportButton format="csv" />

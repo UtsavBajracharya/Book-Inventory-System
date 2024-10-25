@@ -4,23 +4,30 @@ import axios from 'axios';
 
 const BookList = ( {filters} ) => {
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchBooks = async () => {
       try {
         const response = await axios.get('http://localhost:4000/books', { params: filters });
+        console.log('Books fetched:', response.data); // Check what is being fetched
         setBooks(response.data);
       } catch (error) {
-        console.error(error);
+        console.error('Error fetching books:', error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchBooks();
+    console.log("Current filters:", filters); // Log current filters
   }, [filters]);
 
   return (
     <div>
       <h3>Books List</h3>
-      {books.length === 0 ? <p>No books found</p> : (
+      {loading ? ( // Show loading message while fetching data
+        <p>Loading...</p>
+      ) : books.length === 0 ? ( <p>No books found</p> ) : (
         <table>
           <thead>
             <tr>
@@ -33,11 +40,11 @@ const BookList = ( {filters} ) => {
           </thead>
           <tbody>
             {books.map(book => (
-              <tr key={book.id}>
+              <tr key={book.isbn}>
                 <td>{book.title}</td>
                 <td>{book.author}</td>
                 <td>{book.genre}</td>
-                <td>{book.publicationDate}</td>
+                <td>{book.publication_date}</td>
                 <td>{book.isbn}</td>
               </tr>
             ))}
@@ -47,5 +54,7 @@ const BookList = ( {filters} ) => {
     </div>
   );
 };
+
+
 
 export default BookList;

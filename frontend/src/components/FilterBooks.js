@@ -5,7 +5,7 @@ const FilterBooks = ( {onFilter} ) => {
     title: '',
     author: '',
     genre: '',
-    publicationDate: ''
+    publication_date: ''
   });
 
   const handleChange = (e) => {
@@ -13,22 +13,28 @@ const FilterBooks = ( {onFilter} ) => {
     setFilterData({ ...filterData, [name]: value });
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // try {
-    //   const response = await axios.get('http://localhost:4000/books', {
-    //     params: filter
-    //   });
-    //   setFilteredData(response.data);
-    // } catch (error) {
-    //   console.error(error);
-    // }
-    onFilter(filterData);
+
+  // Format publication date to YYYY-MM-DD format 
+  const formattedData = {
+    ...filterData,
+    publication_date: filterData.publication_date 
+      ? new Date(filterData.publication_date).toISOString().split('T')[0]
+      : ''
+  };
+
+    // pass filter formatted data to parent component
+    console.log('Filtering with data:', formattedData); // Test the output here
+    onFilter(formattedData);
+
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h3>Filter Books</h3>
+      
       <label>Title:</label>
       <input type="text" name="title" value={filterData.title} onChange={handleChange} />
       
@@ -39,7 +45,7 @@ const FilterBooks = ( {onFilter} ) => {
       <input type="text" name="genre" value={filterData.genre} onChange={handleChange} />
       
       <label>Publication Date:</label>
-      <input type="date" name="publicationDate" value={filterData.publicationDate} onChange={handleChange} />
+      <input type="date" name="publication_date" value={filterData.publication_date} onChange={handleChange} />
       
       <button type="submit">Filter Books</button>
     </form>
