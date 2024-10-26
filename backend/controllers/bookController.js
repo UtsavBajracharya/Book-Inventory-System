@@ -70,7 +70,7 @@ exports.exportBooks = async (req, res) => {
       return res.send(csv);
 
     } else if (req.query.format === 'json') {
-      const formattedJson = JSON.stringify(books, null, 4); // Pretty print JSON with 4 spaces for indentation
+      const formattedJson = JSON.stringify(books, null, 4); // Print JSON with 4 spaces for indentation
       // Send JSON data
       res.header('Content-Type', 'application/json');
 

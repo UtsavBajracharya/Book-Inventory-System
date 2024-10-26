@@ -1,27 +1,254 @@
 body {
-    font-family: Arial, sans-serif;
-  }
-  
-  h1, h3 {
-    text-align: center;
-  }
-  
-  form {
-    margin: 20px;
-  }
-  
-  table {
-    width: 100%;
-    margin: 20px auto;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-  }
-  
-  button {
-    margin: 10px;
-  }
-  
+  background-color: #f7f9fc;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+
+/* Basic layout styling */
+.dashboard {
+  display: flex;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 250px;
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.sidebar-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  text-align: left;
+  width: 250px;
+  padding: 16px;
+
+}
+
+.sidebar-menu li:hover {
+  background-color: #ffffff; 
+  color: #000000; 
+  cursor: pointer;
+}
+
+.sidebar-menu li a {
+  color: #fff; 
+  text-decoration: none;
+}
+
+.sidebar-menu li:hover a {
+  color: #000000; 
+}
+
+.sidebar-menu li a:hover {
+  text-decoration: none;
+}
+
+
+
+/* Main content styling */
+.main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  background-color: #f8f9fa;
+}
+
+/* Header styling */
+.header {
+  background-color: #292929;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+
+
+form label {
+  font-weight: 600;
+  color: #343a40;
+}
+
+form input, form button {
+  margin-bottom: 0.75rem;
+}
+
+button {
+  color: white;
+}
+
+button[type="submit"] {
+  background-color: #28a745;
+  border: none;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.table {
+  margin-top: 1rem;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.table td {
+  font-weight: 400;
+}
+
+.alert {
+  margin: 1rem 0;
+}
+
+
+
+/* Add form */
+
+
+.add-book-form {
+  width: 100%; 
+  margin: auto; 
+  padding: 24px; 
+  border: 1px solid #ddd;
+  border-radius: 8px; 
+  background-color: #f9f9f9; 
+}
+
+h3 {
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
+.form-group {
+  margin-bottom: 16px; 
+}
+
+label {
+  display: block; 
+  margin-bottom: 8px; 
+  font-weight: bold; 
+}
+
+input {
+  width: 100%; 
+  padding: 12px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+}
+
+button {
+  width: 100%;
+  padding: 10px; 
+  border: none; 
+  border-radius: 4px; 
+}
+
+
+/* Filter form */
+.filter-form {
+  display: flex;
+  flex-direction: column; 
+}
+
+.filter-form input {
+  margin-bottom: 12px; 
+  padding: 8px; 
+}
+
+
+/* Book list */
+
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.book-table th,
+.book-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd; /* Light gray border for cells */
+}
+
+.book-table th {
+  background-color: #020202; /* Green background for headings */
+  color: white; /* White text color */
+  font-weight: bold;
+}
+
+.book-table tr:nth-child(even) {
+  background-color: #f2f2f2; 
+}
+
+.book-table tr:hover {
+  background-color: #ddd; 
+}
+
+.book-table td {
+  font-size: 16px; 
+}
+
+
+/* CSV or JSON export button */
+
+.export-button {
+  background-color: #4CAF50; 
+  color: white; 
+  border: none; 
+  width: 20%;
+  padding: 8px 12px;
+  text-align: center; 
+  font-size: 16px; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  margin: 0 5px; 
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+
+.export-button:hover {
+  background-color: #45a049; 
+  transform: scale(1.05); 
+}
+
+
+.export-buttons-container {
+  display: flex; 
+  justify-content: center; 
+  gap: 10px; 
+}
+
+
+.export-button:focus {
+  outline: none;
+}

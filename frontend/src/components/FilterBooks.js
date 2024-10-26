@@ -32,21 +32,25 @@ const FilterBooks = ( {onFilter} ) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Filter Books</h3>
-      
-      <label>Title:</label>
-      <input type="text" name="title" value={filterData.title} onChange={handleChange} />
-      
-      <label>Author:</label>
-      <input type="text" name="author" value={filterData.author} onChange={handleChange} />
-      
-      <label>Genre:</label>
-      <input type="text" name="genre" value={filterData.genre} onChange={handleChange} />
-      
-      <label>Publication Date:</label>
-      <input type="date" name="publication_date" value={filterData.publication_date} onChange={handleChange} />
-      
+    
+  <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center' }}>
+      <input type="text" name="title" placeholder="Title" value={filterData.title} onChange={handleChange} style={{ marginRight: '10px', flexGrow: 1 }}/>
+      <input type="text" name="author" placeholder="Author" value={filterData.author} onChange={handleChange} style={{ marginRight: '10px', flexGrow: 1 }}/>
+      <input
+        type="text"
+        name="genre"
+        placeholder="Genre"
+        value={filterData.genre}
+        onChange={handleChange}
+        style={{ marginRight: '10px', flexGrow: 1 }}
+      />
+      <input
+        type="date"
+        name="publication_date"
+        value={filterData.publication_date}
+        onChange={handleChange}
+        style={{ marginRight: '10px' }}
+      />
       <button type="submit">Filter Books</button>
     </form>
   );

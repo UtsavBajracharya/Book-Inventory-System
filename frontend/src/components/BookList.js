@@ -25,10 +25,12 @@ const BookList = ( {filters} ) => {
   return (
     <div>
       <h3>Books List</h3>
-      {loading ? ( // Show loading message while fetching data
+      {loading ? (
         <p>Loading...</p>
-      ) : books.length === 0 ? ( <p>No books found</p> ) : (
-        <table>
+      ) : books.length === 0 ? (
+        <p>No books found!!</p>
+      ) : (
+        <table className="book-table">
           <thead>
             <tr>
               <th>Title</th>

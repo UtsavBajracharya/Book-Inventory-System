@@ -21,7 +21,7 @@ const ExportButton = ({ format }) => {
   };
 
   return (
-    <button onClick={() => handleExport()}>
+    <button className="export-button" onClick={handleExport}>
       Export as {format.toUpperCase()}
     </button>
   );
