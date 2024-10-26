@@ -5,12 +5,16 @@ import axios from 'axios';
 const ExportButton = ({ format }) => {
   const handleExport = async () => {
     try {
-      const response = await axios.get(`/api/books/export?format=${format}`);
-      const blob = new Blob([response.data], { type: 'text/csv' });
-      const link = document.createElement('a');
-      link.href = window.URL.createObjectURL(blob);
-      link.download = `books.${format}`;
-      link.click();
+      const response = await axios.get(`http://localhost:4000/books/export?format=${format}`, {
+      responseType: 'blob',
+    });
+
+    const fileType = format === 'csv' ? 'text/csv' : 'application/json';
+    const blob = new Blob([response.data], { type: fileType });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = `books.${format}`;
+    link.click();
     } catch (error) {
       console.error('Export error:', error);
     }
