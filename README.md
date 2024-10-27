@@ -49,11 +49,11 @@ MySQL Database Setup
 
 Create a MySQL database for the application:
 
-sql query to create database:
+- sql query to create database:
 
 CREATE DATABASE book_inventory;
 
-sql query to create table 
+- sql query to create table: 
 
 CREATE TABLE Books (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -75,7 +75,8 @@ Go to backend folder:
 - npm start
 - The backend will be running on http://localhost:4000.
 
-![alt text](image-1.png)
+![image](https://github.com/user-attachments/assets/ebc5e1f0-e294-41b4-a775-e8b2f6390166)
+
 
 Start the Frontend Server
 Go to frontend folder:
@@ -83,31 +84,29 @@ Go to frontend folder:
 - npm start
 - The frontend will be running on http://localhost:3000.
 
-![alt text](image-2.png)
+![image](https://github.com/user-attachments/assets/5105daaf-30b6-4190-bf49-75f39a08c468)
 
 
 #Add Book
 
-![alt text](image-3.png)
+![image](https://github.com/user-attachments/assets/448ab36c-aa0b-4454-832e-e5c9777d585d)
 
 
 #Book List
 
-![alt text](image-4.png)
+![image](https://github.com/user-attachments/assets/ec366527-0490-4998-a8d2-eed4deb97ac0)
 
 
 #Filter Books
 
-![alt text](image-5.png)
+![image](https://github.com/user-attachments/assets/fe7944e3-add2-4f57-8e05-d7fa0c472f77)
 
 
 #Download as CSV
 
-![alt text](image-6.png)
+![image](https://github.com/user-attachments/assets/5911b4d1-2237-45b2-a0b8-44ce0e6a26a6)
 
 
 #Download as JSON
-
-![alt text](image-7.png)
 
 ![image](https://github.com/user-attachments/assets/56147327-ccf3-419a-8b4b-800127f0bf5c)
