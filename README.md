@@ -1,6 +1,6 @@
 # Book-Inventory-Management-System
 
-Book Inventory Management System is a web application that manages and organizes book records. It allows users to add, filter, view, and export book data in CSV and JSON. this application has interfaces with different components like adding books, filtering and viewing the book list, and exporting the data.
+Book Inventory Management System is a web application that manages and organizes book records. Users can add, filter, view, and export book data in CSV and JSON. this application has interfaces with different components like adding books, filtering and viewing the book list, and exporting the data.
 
 #Technologies Used
 - Frontend: React, Bootstrap, CSS
@@ -16,16 +16,16 @@ Book Inventory Management System is a web application that manages and organizes
 
 #Requirements
 
-- Download and installnstall Node.js from https://nodejs.org/en
+- Download and install Node.js from https://nodejs.org/en
 - Download MySQL from https://dev.mysql.com/downloads/mysql/
 
 
-Clone this project by running the command - git clone https://github.com/UtsavBajracharya/Book-Inventory-System in command prompt
+Clone this project by running the command - git clone https://github.com/UtsavBajracharya/Book-Inventory-System in the command prompt
 
 #Installation Steps
 
 1. Backend Setup
-In the backend, we are using Node.js with Express.js for server functionality, Sequelize as the ORM, and dotenv for environment variables.
+In the backend, we use Node.js with Express.js for server functionality, Sequelize as the ORM, and dotenv for environment variables.
 
 Install the following dependencies for the backend:
 Navigate to the backend folder in your project and run the following commands:
@@ -35,13 +35,13 @@ Navigate to the backend folder in your project and run the following commands:
 
 
 2. Frontend Setup
-In the frontend, we are using React and Bootstrap for UI, along with axios to make HTTP requests and connect to the backend API.
+We use React, Bootstrap for UI, and Axios on the front end to make HTTP requests and connect them to the backend API.
 
 Install the following dependencies for the frontend:
 Navigate to the frontend folder in your project and run the following commands:
 
 - cd frontend
-- npm install react-bootstrap bootstrap axios
+- npm install react-bootstrap bootstrap Axios
 
 #Configuration
 
@@ -49,11 +49,11 @@ MySQL Database Setup
 
 Create a MySQL database for the application:
 
-- sql query to create database:
+- SQL query to create the database:
 
 CREATE DATABASE book_inventory;
 
-- sql query to create table: 
+- SQL query to create a table: 
 
 CREATE TABLE Books (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -70,7 +70,7 @@ CREATE TABLE Books (
 #Run the Application
 
 Start the Backend Server
-Go to backend folder:
+Go to the backend folder:
 
 - npm start
 - The backend will be running on http://localhost:4000.
@@ -79,10 +79,10 @@ Go to backend folder:
 
 
 Start the Frontend Server
-Go to frontend folder:
+Go to the frontend folder:
 
 - npm start
-- The frontend will be running on http://localhost:3000.
+- The front end will be running on http://localhost:3000.
 
 ![image](https://github.com/user-attachments/assets/5105daaf-30b6-4190-bf49-75f39a08c468)
 
