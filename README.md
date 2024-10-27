@@ -64,7 +64,7 @@ CREATE TABLE Books (
   isbn VARCHAR(20) UNIQUE NOT NULL
 );
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/d326442f-6231-4ec7-bb3a-6192d7ec942b)
 
 
 #Run the Application
