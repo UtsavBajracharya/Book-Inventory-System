@@ -41,7 +41,15 @@ exports.getBooks = async (req, res) => {
 
     try {
       const books = await Book.findAll( { where } );
-      res.json(books);
+
+    // Format publication_date
+    const formattedBooks = books.map(book => ({
+      ...book.toJSON(),
+      publication_date: book.publication_date.toISOString().split('T')[0]
+    }));
+    
+    res.json(formattedBooks);
+
     } catch (error) {
       console.error('Error fetching books:', error);  // Log the error to debug
       res.status(500).json({ message: 'Error fetching books', error });
@@ -56,6 +64,14 @@ exports.exportBooks = async (req, res) => {
       raw: true 
     });
 
+
+    // Format publication_date
+    const formattedBooks = books.map(book => ({
+      ...book,
+      publication_date: new Date(book.publication_date).toISOString().split('T')[0]
+      
+    }));
+
     if (req.query.format === 'csv') {
       // Convert JSON data to CSV
       const fields = ['id', 'title', 'author', 'genre', 'publication_date', 'isbn'];
@@ -63,14 +79,15 @@ exports.exportBooks = async (req, res) => {
       // Create a new Parser instance with the specified fields
       const json2csvParser = new Parser({ fields });
       
-      const csv = json2csvParser.parse(books);
+      const csv = json2csvParser.parse(formattedBooks);
 
       res.header('Content-Type', 'text/csv');
       res.attachment('books.csv');
       return res.send(csv);
 
     } else if (req.query.format === 'json') {
-      const formattedJson = JSON.stringify(books, null, 4); // Print JSON with 4 spaces for indentation
+      const formattedJson = JSON.stringify(formattedBooks, null, 4); // Print JSON with 4 spaces for indentation
+      
       // Send JSON data
       res.header('Content-Type', 'application/json');
 

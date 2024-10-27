@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({ toggleSidebar }) => {
   return (
     <header className="header">
-      <h2>Book Inventory</h2>
+      <button onClick={toggleSidebar} className="toggle-button">☰</button>
+      <h2>Book Management</h2>
     </header>
   );
 };

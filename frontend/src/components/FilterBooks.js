@@ -25,32 +25,22 @@ const FilterBooks = ( {onFilter} ) => {
       : ''
   };
 
-    // pass filter formatted data to parent component
-    console.log('Filtering with data:', formattedData); // Test the output here
+    // pass filter formatted data to parent component 
     onFilter(formattedData);
 
   };
 
   return (
     
-  <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center' }}>
-      <input type="text" name="title" placeholder="Title" value={filterData.title} onChange={handleChange} style={{ marginRight: '10px', flexGrow: 1 }}/>
-      <input type="text" name="author" placeholder="Author" value={filterData.author} onChange={handleChange} style={{ marginRight: '10px', flexGrow: 1 }}/>
-      <input
-        type="text"
-        name="genre"
-        placeholder="Genre"
-        value={filterData.genre}
-        onChange={handleChange}
-        style={{ marginRight: '10px', flexGrow: 1 }}
-      />
-      <input
-        type="date"
-        name="publication_date"
-        value={filterData.publication_date}
-        onChange={handleChange}
-        style={{ marginRight: '10px' }}
-      />
+  <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} className="filter-form">
+      <input type="text" name="title" placeholder="Title" value={filterData.title} onChange={handleChange} style={{ marginRight: '12px', marginBottom: '12px', flexGrow: 1 }}/>
+
+      <input type="text" name="author" placeholder="Author" value={filterData.author} onChange={handleChange} style={{ marginRight: '12px', marginBottom: '12px', flexGrow: 1 }}/>
+
+      <input type="text" name="genre" placeholder="Genre" value={filterData.genre} onChange={handleChange} style={{ marginRight: '12px', marginBottom: '12px', flexGrow: 1 }}/>
+
+      <input type="date" name="publication_date" value={filterData.publication_date} onChange={handleChange} style={{ marginRight: '12px', marginBottom: '12px' }}/>
+
       <button type="submit">Filter Books</button>
     </form>
   );

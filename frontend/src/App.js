@@ -12,41 +12,42 @@ import BooksList from './components/BookList.js';
 
 import ExportButton from './components/ExportButton.js';
 
-import Sidebar from './components/Sidebar'; 
+import Sidebar from './components/Sidebar';
 
-import Header from './components/Header'; 
+import Header from './components/Header';
 
 import './styles.css';
 
 function App() {
   const [filters, setFilters] = useState({});
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // You may want to default this to false
 
   const handleFilter = (filterData) => {
     setFilters(filterData);
+  };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   return (
-    
     <Router>
       <div className="dashboard">
-        <Sidebar /> 
+        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} /> {/* Pass toggleSidebar */}
         <div className="main-content">
-          <Header /> 
-          <div className="container py-4">
+          <Header toggleSidebar={toggleSidebar} />
+          <div className="container-xxll">
             <Routes>
               <Route
                 path="/"
                 element={
                   <>
                     <h1 className="text-left mb-4">Dashboard</h1>
-                   
                     <div className="row mb-4">
                       <div className="col-12">
                         <FilterBooks onFilter={handleFilter} />
                       </div>
                     </div>
-               
                     <div className="row mb-4">
                       <div className="col-12">
                         <BooksList filters={filters} />
@@ -61,13 +62,12 @@ function App() {
                   </>
                 }
               />
-              <Route path="/add-book" element={<AddBookForm />} /> {/* Route to AddBookForm */}
+              <Route path="/add-book" element={<AddBookForm />} />
             </Routes>
           </div>
         </div>
       </div>
     </Router>
-
   );
 }
 

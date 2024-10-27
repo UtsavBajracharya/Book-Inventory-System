@@ -10,7 +10,7 @@ const BookList = ( {filters} ) => {
     const fetchBooks = async () => {
       try {
         const response = await axios.get('http://localhost:4000/books', { params: filters });
-        console.log('Books fetched:', response.data); // Check what is being fetched
+    
         setBooks(response.data);
       } catch (error) {
         console.error('Error fetching books:', error);
@@ -19,7 +19,6 @@ const BookList = ( {filters} ) => {
       }
     };
     fetchBooks();
-    console.log("Current filters:", filters); // Log current filters
   }, [filters]);
 
   return (
@@ -33,6 +32,7 @@ const BookList = ( {filters} ) => {
         <table className="book-table">
           <thead>
             <tr>
+              <th>#ID</th>
               <th>Title</th>
               <th>Author</th>
               <th>Genre</th>
@@ -43,10 +43,11 @@ const BookList = ( {filters} ) => {
           <tbody>
             {books.map(book => (
               <tr key={book.isbn}>
+                <td>{book.id}</td>
                 <td>{book.title}</td>
                 <td>{book.author}</td>
                 <td>{book.genre}</td>
-                <td>{book.publication_date}</td>
+                <td>{new Date(book.publication_date).toISOString().split('T')[0]}</td>
                 <td>{book.isbn}</td>
               </tr>
             ))}

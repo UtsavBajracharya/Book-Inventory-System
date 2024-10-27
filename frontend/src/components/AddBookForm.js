@@ -49,8 +49,9 @@ const AddBookForm = () => {
       <div className="form-group">
         <label>ISBN:</label>
         <input type="text" name="isbn" value={bookData.isbn} onChange={handleChange} required/>
+        <span>Enter valid ISBN (eg: 987-45646-484-7)</span>
       </div>
-      <button type="submit" className="btn btn-primary">Add Book</button>
+      <button type="submit">Add Book</button>
     </form>
   );
 };
